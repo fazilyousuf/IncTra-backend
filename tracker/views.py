@@ -8,12 +8,11 @@ from datetime import timedelta
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.db.models import Sum, Q
-from rest_framework.authentication import SessionAuthentication
 
 
 class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = AccountSerializer
-    authentication_classes = [JWTAuthentication,  SessionAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -29,7 +28,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class TransactionViewSet(viewsets.ModelViewSet):
     serializer_class = TransactionSerializer
-    authentication_classes = [JWTAuthentication,  SessionAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
